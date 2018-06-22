@@ -3,6 +3,10 @@ module.exports = (function () {
 
     var getAll = function (req, res) {
         Utente.find()
+            .populate({
+                path: 'amici',
+                select: ['nome','cognome']
+            })
             .then((utenti) => res.json(utenti))
             .catch((err) => console.log(err))
     };
