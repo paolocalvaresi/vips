@@ -59,6 +59,15 @@ var utenteSchema = new Schema({
 
 });
 
+utenteSchema.pre('save', function (next) {
+    this.nome = this.nome.charAt(0).toUpperCase() + this.nome.slice(1).toLowerCase();
+    this.cognome = this.cognome.charAt(0).toUpperCase() + this.cognome.slice(1).toLowerCase();
+    this.citta = this.citta.charAt(0).toUpperCase() + this.citta.slice(1).toLowerCase();
+    next();
+});
+
+
+
 var Utente = mongoose.model('Utente', utenteSchema);
 
 module.exports = Utente;

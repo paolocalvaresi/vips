@@ -9,7 +9,10 @@ module.exports = function (app, express) {
 
 
     // gestione delle rotte relative agli utenti
-    app.use('/utenti', require('./utenti'));
+    app.use('/utenti', require('./utenti/index.js'));
+   
+    // gestione delle rotte relative ai posts
+    app.use('/posts', require('./posts/index.js'));
 
 
 
