@@ -19,6 +19,7 @@
     "bootstrap": "^4.1.1",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "livereload": "^0.7.0",
     "mongoose": "^5.1.6",
     "morgan": "^1.9.0",
     "path": "^0.12.7",
