@@ -8,6 +8,7 @@ module.exports = (function () {
                 path: 'amici',
                 select: ['nome', 'cognome']
             })
+            .populate('posts')
             .then((utenti) => res.json(utenti))
             .catch((err) => console.log(err))
     };
@@ -18,6 +19,7 @@ module.exports = (function () {
                 path: 'amici',
                 select: ['nome', 'cognome']
             })
+            .populate('posts')
             .then((utente) => res.json(utente))
             .catch((err) => console.log(err))
 
