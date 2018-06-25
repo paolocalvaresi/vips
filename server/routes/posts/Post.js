@@ -27,6 +27,12 @@ var postSchema = new Schema({
 });
 
 
+postSchema.pre('save', function (next) { 
+    this.data = new Date();
+    next();
+})
+
+
 
 
 

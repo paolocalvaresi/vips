@@ -2,8 +2,8 @@ var express = require('express');
 var posts = express.Router();
 var controller = require('./controller');
 
-// // trova tutti posts
-// posts.get('/', controller.getAll);
+// trova tutti posts
+posts.get('/', controller.getAll);
 
 // // trova tutti posts tramite filtro
 // posts.get('/filtro', controller.getByFilter);
@@ -13,6 +13,6 @@ var controller = require('./controller');
 
 
 // crea un post
-// posts.post('/', controller.insertUser)
+posts.post('/', controller.insertPost)
 
 module.exports = posts;
