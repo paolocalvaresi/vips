@@ -11,6 +11,9 @@ utenti.get('/filtro', controller.getByFilter);
 //trovare tramite id (dettaglio utente)
 utenti.get('/:id([0-9a-f]{24})', controller.getOne);
 
+//aggiungo il post appena creato all'utente
+utenti.put('/:id([0-9a-f]{24})/posts', controller.savePost);
+
 
 // crea un utente
 utenti.post('/', controller.insertUser)

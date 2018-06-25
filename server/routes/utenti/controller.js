@@ -53,11 +53,27 @@ module.exports = (function () {
             .catch((err) => res.json(err))
     }
 
+
+    var savePost = function (req, res) {
+        Utente.findById(req.params.id)
+            .then(function (utente) {
+                utente.posts.push(req.body.idpost);
+                return utente.save();
+            })
+            .then(function (utente) {
+                res.json(utente);
+            })
+            .catch((err) => res.json(err))
+
+    }
+
+
     return {
         getAll,
         getOne,
         getByFilter,
-        insertUser
+        insertUser,
+        savePost
     }
 
 })()
