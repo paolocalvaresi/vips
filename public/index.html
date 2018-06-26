@@ -12,65 +12,27 @@
 </head>
 
 <body ng-app="app">
-    <div class="container-fluid" ng-controller="controller">
+    <div class="container-fluid">
         <ng-include src="'ui/nav.html'"></ng-include>
-        <div class="row my-5">
-            <div class="col-md-4">
-                <label for="sesso">Seleziona il sesso</label>
-                <select id="sesso" ng-model="sesso" class="form-control">
-                    <option value="">Tutti</option>
-                    <option value="Maschio">Maschio</option>
-                    <option value="Femmina">Femmina</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row mt-5">
-            <div class="col-md-4" ng-repeat="utente in utenti | filter: cerca | filtraSesso : sesso track by $index">
-                <div class="card" ng-class="{'bg-blue' : utente.sesso=='Maschio','bg-pink':utente.sesso=='Femmina' }">
-                    <img class="card-img-top" ng-src="{{utente.foto[0]}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" ng-bind="utente.nome +' '+utente.cognome"></h5>
-                        <h6 class="card-title" ng-show="utente.amici.length">Amici:
-                            <span ng-repeat="amico in utente.amici" ng-bind="amico.nome +' '+amico.cognome">
-                            </span>
-                        </h6>
-                        <h6 class="card-title" ng-show="utente.interessi">Interessi:
-                            <span ng-repeat="interesse in utente.interessi">
-                                <span ng-bind="interesse | maiuscola"></span>,
-
-                            </span>
-                        </h6>
-                        <h6 class="card-title" ng-show="utente.posts.length">posts:
-                            <span ng-repeat="post in utente.posts">
-                                <span ng-bind="post.descrizione"></span>,
-
-                            </span>
-                        </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <div ui-view></div>
     </div>
 
     <!-- livereload -->
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
             ':35729/livereload.js?snipver=1"></' + 'script>')
-    </script>
+</script>
 
     <!-- le dipendenze esterne -->
     <script src="/jquery/jquery.min.js"></script>
     <script src="/popper/popper.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/angular/angular.min.js"></script>
+    <script src="/ui-router/angular-ui-router.min.js"></script>
 
     <!--i miei script js -->
     <script src="/app/app.js"></script>
-    <script src="/app/controller.js"></script>
-    <script src="/app/service.js"></script>
-    <script src="/app/filtri.js"></script>
+    <script src="/app/router.js"></script>
 
 </body>
 
