@@ -12,50 +12,40 @@
 </head>
 
 <body ng-app="app">
-    <ng-include src="'ui/nav.html'"></ng-include>
-    <div class="container" ng-controller="controller">
-        <div class="row my-5 text-center">
-            <div class "col-md-12">
-                <h1 ng-bind="titolo"></h1>
+    <div class="container-fluid" ng-controller="controller">
+        <ng-include src="'ui/nav.html'"></ng-include>
+        <div class="row my-5">
+            <div class="col-md-4">
+                <label for="sesso">Seleziona il sesso</label>
+                <select id="sesso" ng-model="sesso" class="form-control">
+                    <option value="">Tutti</option>
+                    <option value="Maschio">Maschio</option>
+                    <option value="Femmina">Femmina</option>
+                </select>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nome</label>
-                        <input type="text" class="form-control" placeholder="inserisci il nome" ng-model="nuovo.nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Razza</label>
-                        <select class="form-control" id="razza" ng-model="nuovo.razza" required>
-                            <option value="" disabled>Inserisci la razza</option>
-                            <option value="canina">Canina</option>
-                            <option value="felina">Felina</option>
-                            <option value="canina">Canina</option>
-                            <option value="equina">Equina</option>
-                            <option value="suina">Suina</option>
 
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Immagine</label>
-                        <input type="text" class="form-control" placeholder="inserisci l'immagine" ng-model="nuovo.immagine" required>
-                    </div>
-                    <button class="btn btn-success" ng-click="inserisci()">Inserisci</button>
-                </form>
-            </div>
-        </div>
         <div class="row mt-5">
-            <div class="col-md-4" ng-repeat="animale in animali track by $index">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" ng-src="{{animale.immagine}}" alt="Card image cap">
+            <div class="col-md-4" ng-repeat="utente in utenti | filter: cerca | filtraSesso : sesso track by $index">
+                <div class="card" ng-class="{'bg-blue' : utente.sesso=='Maschio','bg-pink':utente.sesso=='Femmina' }">
+                    <img class="card-img-top" ng-src="{{utente.foto[0]}}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Nome:
-                            <span ng-bind="animale.nome"></span>
-                        </h5>
-                        <h6 class="card-title">Razza:
-                            <span ng-bind="animale.razza"></span>
+                        <h5 class="card-title" ng-bind="utente.nome +' '+utente.cognome"></h5>
+                        <h6 class="card-title" ng-show="utente.amici.length">Amici:
+                            <span ng-repeat="amico in utente.amici" ng-bind="amico.nome +' '+amico.cognome">
+                            </span>
+                        </h6>
+                        <h6 class="card-title" ng-show="utente.interessi">Interessi:
+                            <span ng-repeat="interesse in utente.interessi">
+                                <span ng-bind="interesse | maiuscola"></span>,
+
+                            </span>
+                        </h6>
+                        <h6 class="card-title" ng-show="utente.posts.length">posts:
+                            <span ng-repeat="post in utente.posts">
+                                <span ng-bind="post.descrizione"></span>,
+
+                            </span>
                         </h6>
                     </div>
                 </div>
@@ -64,12 +54,11 @@
 
     </div>
 
-
-
     <!-- livereload -->
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-            ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+            ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
 
     <!-- le dipendenze esterne -->
     <script src="/jquery/jquery.min.js"></script>
@@ -77,9 +66,11 @@
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/angular/angular.min.js"></script>
 
-    <!-- i miei script js -->
+    <!--i miei script js -->
     <script src="/app/app.js"></script>
     <script src="/app/controller.js"></script>
+    <script src="/app/service.js"></script>
+    <script src="/app/filtri.js"></script>
 
 </body>
 
