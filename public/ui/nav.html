@@ -6,14 +6,17 @@
     </button>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item" ui-sref-active="active" ng-show="loggato">
-            <a class="nav-link" ui-sref="loggato.home">Posts</a>
+            <a class="nav-link" ui-sref="loggato.home">Home</a>
+        </li>
+        <li class="nav-item" ui-sref-active="active" ng-show="loggato">
+            <a class="nav-link" ui-sref="loggato.utenti">Utenti</a>
         </li>
         <li class="nav-item" ng-show="loggato">
-            <a class="nav-link" ng-click="logout()">Logout
+            <a class="nav-link pointer" ng-click="logout()">Logout
             </a>
         </li>
         <li class="nav-item" ui-sref-active="active" ng-hide="loggato">
-            <a class="nav-link" ui-sref="/login">Login
+            <a class="nav-link" ui-sref="login">Login
             </a>
         </li>
     </ul>

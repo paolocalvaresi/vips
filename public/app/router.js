@@ -1,7 +1,7 @@
 angular.module('app').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.when("", "/home");
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.when("", "app/home");
+    $urlRouterProvider.otherwise("app/home");
     $locationProvider.html5Mode(true).hashPrefix('!');
 
     $stateProvider
@@ -14,14 +14,12 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
                 let loggato = localStorage.loggato;
                 if (loggato == "true") {
                     $state.go('loggato.home')
-                } else {
-
-                }
+                } 
             }
         })
         // STATO PADRE ASTRATTO
         .state('loggato', {
-            url: '/',
+            url: '/app/',
             abstract: true,
             templateUrl: 'main.html',
             onEnter: function ($state, $rootScope) {
@@ -36,7 +34,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 
 
         })
-        // STATI FIGLI
+        // STATO FIGLIO CHE MOSTRA LA LISTA DEI MIEI POSTS IN HOME PAGE
         .state('loggato.home', {
             url: 'home',
             templateUrl: 'app/posts/postsTemplate.html',
@@ -44,6 +42,17 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
             resolve: {
                 posts: function (postsService) {
                     return postsService.getAll();
+                }
+            }
+        })
+        // STATO FIGLIO CHE MOSTRA LA LISTA DEGLI UTENTI
+        .state('loggato.utenti', {
+            url: 'utenti',
+            templateUrl: 'app/utenti/utentiTemplate.html',
+            controller: 'utentiController',
+            resolve: {
+                utenti: function (utentiService) {
+                    return utentiService.getAll();
                 }
             }
         })

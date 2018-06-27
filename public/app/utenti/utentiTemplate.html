@@ -1,0 +1,7 @@
+<div class="card mb-3" ng-repeat="utente in utenti">
+    <div class="card-body">
+        <h5 class="card-title" ng-bind="utente.nome + ' ' + utente.cognome"></h5>
+        <p class="card-text" ng-bind=""></p>
+    </div>
+    <img class="card-img-bottom" ng-src="{{utente.foto[0]}}" alt="Card image cap">
+</div>

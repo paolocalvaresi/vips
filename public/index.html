@@ -14,11 +14,9 @@
 </head>
 
 <body ng-app="app">
-<ng-include src="'ui/nav.html'" ng-controller="navController"></ng-include>
+    <ng-include src="'ui/nav.html'" ng-controller="navController"></ng-include>
     <div class="container">
-        <div class="row mt-5"></div>
         <div ui-view></div>
-
     </div>
 
     <!-- livereload -->
@@ -36,10 +34,12 @@
 
     <!--i miei script js -->
     <script src="/app/app.js"></script>
-    <script src="/app/navController.js"></script>
+    <script src="/ui/navController.js"></script>
     <script src="/app/router.js"></script>
     <script src="/app/posts/postsController.js"></script>
     <script src="/app/posts/postsService.js"></script>
+    <script src="/app/utenti/utentiController.js"></script>
+    <script src="/app/utenti/utentiService.js"></script>
     <script src="/app/login/loginController.js"></script>
     <script src="/app/login/loginService.js"></script>
 

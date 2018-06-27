@@ -1,3 +1,6 @@
 body{
     background: #e9ebee;
 }
+.pointer {
+    cursor: pointer;
+}

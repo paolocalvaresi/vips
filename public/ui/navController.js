@@ -1,4 +1,4 @@
-angular.module('app').controller('navController', function ($scope, loginService, $rootScope, $state) {
+angular.module('app').controller('navController', function ($scope, $rootScope, $state) {
 
     $scope.logout = function () {
 
