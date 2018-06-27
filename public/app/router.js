@@ -1,12 +1,18 @@
 angular.module('app').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.when("", "/");
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.when("", "/home");
+    $urlRouterProvider.otherwise("/home");
     $locationProvider.html5Mode(true).hashPrefix('!');
 
     $stateProvider
-        .state('/', {
+        .state('loggato', {
             url: '/',
+            abstract: true,
+            templateUrl: 'main.html',
+            
+        })
+        .state('loggato.home', {
+            url: 'home',
             templateUrl: 'app/posts/postsTemplate.html',
             controller: 'postsController',
             resolve: {
@@ -15,9 +21,10 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
                 }
             }
         })
-        .state('/chi-siamo', {
-            url: '/chi-siamo',
-            template: '<h1>Pagina chi siamo</h1>'
+        .state('/login', {
+            url: '/login',
+            templateUrl: 'app/login/login.html',
+            controller: 'loginController'
         })
 
 })

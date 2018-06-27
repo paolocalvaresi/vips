@@ -16,26 +16,8 @@
 <body ng-app="app">
     <ng-include src="'ui/nav.html'"></ng-include>
     <div class="container">
-        <div class="row mt-5">
-            <!-- colonna sinistra -->
-            <div class="col-md-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse natus, architecto reiciendis, cupiditate pariatur
-                fugiat modi, dignissimos maiores reprehenderit unde recusandae animi. Impedit, nam? Natus repellat aperiam
-                suscipit quo. Aperiam.
-
-            </div>
-
-            <!-- colonna centrale -->
-            <div class="col-md-8">
-                <div ui-view></div>
-            </div>
-
-            <!-- colonna destra -->
-            <div class="col-md-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse natus, architecto reiciendis, cupiditate pariatur
-                fugiat modi, dignissimos maiores reprehenderit unde recusandae animi. Impedit, nam? Natus repellat aperiam
-                suscipit quo. Aperiam.
-
-            </div>
-        </div>
+<div class="row mt-5"></div>
+        <div ui-view></div>
 
     </div>
 
@@ -57,6 +39,8 @@
     <script src="/app/router.js"></script>
     <script src="/app/posts/postsController.js"></script>
     <script src="/app/posts/postsService.js"></script>
+    <script src="/app/login/loginController.js"></script>
+    <script src="/app/login/loginService.js"></script>
 
 </body>
 
