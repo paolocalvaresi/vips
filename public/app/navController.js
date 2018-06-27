@@ -4,7 +4,7 @@ angular.module('app').controller('navController', function ($scope, loginService
 
         $rootScope.loggato = false;
         localStorage.loggato = false;
-        $state.go('/login')
+        $state.go('login')
 
     }
 
