@@ -9,7 +9,15 @@ angular.module('app').service('postsService', function ($http) {
         });
     }
 
+    var addLike = function (id) { 
+        return $http({
+            method: 'PUT',
+            url: 'http://localhost:3000/posts/likes/' + id
+        })
+    }
+
     return {
-        getAll
+        getAll,
+        addLike
     }
  })

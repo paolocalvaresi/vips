@@ -12,21 +12,36 @@ module.exports = (function () {
             });
     }
 
-    var insertPost = function (req, res) { 
+    var insertPost = function (req, res) {
         var post = new Post(req.body);
 
         post.save()
             .then(function (post) {
                 res.json(post);
-             })
-            .catch(function (err) { 
+            })
+            .catch(function (err) {
                 console.log(err);
             });
     }
 
+    var addLike = function (req, res) {
+        Post.findById(req.params.id)
+            .then(function (post) {
+                post.likes += 1;
+                return post.save()
+            })
+            .then(function (post) { 
+                res.json(post);
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    }
+
     return {
         getAll,
-        insertPost
+        insertPost,
+        addLike
 
     }
 
