@@ -7,7 +7,13 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
     $stateProvider
         .state('/', {
             url: '/',
-            template: '<h1>La mia home page</h1>'
+            templateUrl: 'app/posts/postsTemplate.html',
+            controller: 'postsController',
+            resolve: {
+                posts: function (postsService) { 
+                    return postsService.getAll();
+                }
+            }
         })
         .state('/chi-siamo', {
             url: '/chi-siamo',
