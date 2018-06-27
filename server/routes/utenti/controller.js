@@ -13,6 +13,19 @@ module.exports = (function () {
             .catch((err) => console.log(err))
     };
 
+    var getByEmail = function (req, res) {
+        Utente.findOne({
+                email: req.body.email
+            })
+            .populate({
+                path: 'amici',
+                select: ['nome', 'cognome']
+            })
+            .populate('posts')
+            .then((utente) => res.json(utente))
+            .catch((err) => console.log(err))
+
+    }
     var getOne = function (req, res) {
         Utente.findById(req.params.id)
             .populate({
@@ -70,6 +83,7 @@ module.exports = (function () {
 
     return {
         getAll,
+        getByEmail,
         getOne,
         getByFilter,
         insertUser,

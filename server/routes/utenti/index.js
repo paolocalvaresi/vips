@@ -5,6 +5,8 @@ var controller = require('./controller');
 // trova tutti utenti
 utenti.get('/', controller.getAll);
 
+utenti.post('/login', controller.getByEmail);
+
 // trova tutti utenti tramite filtro
 utenti.get('/filtro', controller.getByFilter);
 
