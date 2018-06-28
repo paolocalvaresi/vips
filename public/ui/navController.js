@@ -9,4 +9,5 @@ angular.module('app').controller('navController', function ($scope, $rootScope, 
 
     }
 
+    $scope.id = localStorage.id
 })

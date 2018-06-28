@@ -11,6 +11,9 @@
         <li class="nav-item" ui-sref-active="active" ng-show="loggato">
             <a class="nav-link" ui-sref="loggato.utenti">Utenti</a>
         </li>
+        <li class="nav-item" ui-sref-active="active" ng-show="loggato">
+            <a class="nav-link" ui-sref="loggato.utente({id:id})">Profilo</a>
+        </li>
         <li class="nav-item" ng-show="loggato">
             <a class="nav-link pointer" ng-click="logout()">Logout
             </a>

@@ -6,7 +6,7 @@ module.exports = (function () {
         Utente.find()
             .populate({
                 path: 'amici',
-                select: ['nome', 'cognome']
+                select: ['nome', 'cognome','foto']
             })
             .populate('posts')
             .then((utenti) => res.json(utenti))
@@ -30,7 +30,7 @@ module.exports = (function () {
         Utente.findById(req.params.id)
             .populate({
                 path: 'amici',
-                select: ['nome', 'cognome']
+                select: ['nome', 'cognome','foto']
             })
             .populate('posts')
             .then((utente) => res.json(utente))
