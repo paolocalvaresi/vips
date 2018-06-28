@@ -27,7 +27,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
                 if (loggato == "false") {
                     $state.go('login')
                 } else {
-
+                    $rootScope.id = localStorage.id;
                     $rootScope.loggato = true;
                 }
             }

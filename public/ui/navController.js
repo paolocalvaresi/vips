@@ -4,6 +4,7 @@ angular.module('app').controller('navController', function ($scope, $rootScope, 
 
         $rootScope.loggato = false;
         localStorage.loggato = false;
+        localStorage.id = '';
         $state.go('login')
 
     }

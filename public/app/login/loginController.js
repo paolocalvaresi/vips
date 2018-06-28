@@ -2,18 +2,18 @@ angular.module('app').controller('loginController', function ($scope, loginServi
 
     $scope.login = function () {
         loginService.getByEmail($scope.email)
-            .then((res) => { 
+            .then((res) => {
                 if (res.data.password == $scope.password) {
                     localStorage.loggato = true;
                     $rootScope.loggato = true;
+                    $rootScope.id = res.data._id;
+                    localStorage.id = res.data._id;
                     $state.go('loggato.home')
-                } else { 
+                } else {
                     $scope.error = 'email o password errati'
                 }
             })
-            .catch((err) => { });
+            .catch((err) => {});
     }
 
 })
-
-
