@@ -1,3 +1,19 @@
+<div class="mb-3">
+    <div class="bg-white p-3 col-md-12">
+        <form ng-submit="inserisci()">
+            <div class="form-group">
+                <label>Descrizione</label>
+                <textarea class="form-control" placeholder="Inserisci la descrizione" ng-model="descrizione"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Foto</label>
+                <input type="text" class="form-control" placeholder="Inserisci la foto" ng-model="foto">
+            </div>
+            <button type="submit" class="btn btn-primary">Inserisci</button>
+        </form>
+    </div>
+</div>
+
 <div class="card mb-3" ng-repeat="post in posts">
     <div class="card-body">
         <h5 class="card-title" ng-bind="post.data | date : 'dd/MM/yyyy h:mm'"></h5>

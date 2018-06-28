@@ -4,6 +4,9 @@ module.exports = (function () {
     var getAll = function (req, res) {
         Post.find()
             .limit(20)
+            .sort([
+                ['data', -1]
+            ])
             .then(function (posts) {
                 res.json(posts);
             })
