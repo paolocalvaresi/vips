@@ -51,11 +51,27 @@ module.exports = (function () {
             })
     }
 
+
+
+
+
+    var addCommento = function (req, res) { 
+        Post.findById(req.params.id)
+            .then(function (post) { 
+                post.commenti.push(req.body);
+                return post.save();
+            })
+            .then(function (post) {
+                res.json(post)
+             })
+    }
+
     return {
         getAll,
         insertPost,
         addLike,
-        deletePost
+        deletePost,
+        addCommento
     }
 
 })()

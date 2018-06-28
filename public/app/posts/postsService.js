@@ -32,10 +32,19 @@ angular.module('app').service('postsService', function ($http) {
         })
     }
 
+    var commenta = function (body, id) {
+        return $http({
+            method: 'PUT',
+            url: 'http://localhost:3000/posts/commento/' + id,
+            data: body
+        })
+    }
+
     return {
         getAll,
         addLike,
         addPost,
-        deletePost
+        deletePost,
+        commenta
     }
 })

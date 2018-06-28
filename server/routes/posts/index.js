@@ -14,5 +14,7 @@ posts.delete('/:id', controller.deletePost)
 //aggiungi like
 posts.put('/likes/:id', controller.addLike)
 
+//aggiungi commento
+posts.put('/commento/:id', controller.addCommento)
 
 module.exports = posts;
