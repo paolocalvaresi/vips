@@ -1,7 +1,48 @@
-<div class="card mb-3" >
+<div class="card mb-3">
     <div class="card-body">
         <h5 class="card-title" ng-bind="utente.nome + ' ' + utente.cognome"></h5>
         <p class="card-text" ng-bind=""></p>
     </div>
     <img class="card-img-bottom" ng-src="{{utente.foto[0]}}" alt="Card image cap">
+    <div class="row my-3">
+        <div class="col-md-4 text-left">
+            <i class="fas fa-map-marker-alt p-2"></i>
+            <span ng-bind="utente.citta"></span>
+        </div>
+        <div class="col-md-4 text-center">
+            <i class="fas fa-envelope p-2"></i>
+            <span ng-bind="utente.email"></span>
+        </div>
+        <div class="col-md-4 text-right">
+            <i class="fas fa-briefcase p-2"></i>
+            <span class="pr-2" ng-bind="utente.lavoro"></span>
+        </div>
+    </div>
+</div>
+
+<!-- foto -->
+<div class="row mt-3">
+    <div class="col-md-3">
+        <div class="card mb-3" ng-repeat="foto in utente.foto">
+            <img class="card-img-bottom" ng-src="{{foto}}" alt="Card image cap">
+        </div>
+    </div>
+</div>
+
+<!-- posts -->
+<div class="row mt-3">
+    <div class="col-md-6">
+        <div class="card mb-3" ng-repeat="post in utente.posts">
+            <div class="card-body">
+                <h5 class="card-title" ng-bind="post.data | date : 'dd/MM/yyyy h:mm'"></h5>
+                <p class="card-text" ng-bind="post.descrizione"></p>
+            </div>
+            <img class="card-img-bottom" ng-src="{{post.foto[0]}}" alt="Card image cap">
+            <div class="card-footer text-muted">
+                <i class="far fa-thumbs-up mr-2" ng-click="addLike(post._id)"></i>
+                <span ng-bind="post.likes"></span>
+                <button style="float:right" class="btn btn-light">Commenti</button>
+            </div>
+        </div>
+    </div>
 </div>
