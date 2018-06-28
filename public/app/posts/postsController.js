@@ -1,4 +1,4 @@
-angular.module('app').controller('postsController', function ($scope, posts, postsService) {
+angular.module('app').controller('postsController', function ($scope, posts, postsService, utentiService) {
 
     $scope.posts = posts.data;
 
@@ -22,20 +22,21 @@ angular.module('app').controller('postsController', function ($scope, posts, pos
             likes: 0
         }
         postsService.addPost(post)
-            
-            .then(function (res) {
-                var id = res.data._id;
-
-                return utenti.inserPost(id);
+            .then(function (post) {
+                var body = {
+                    idpost: post.data._id
+                }
+                return utentiService.insertPost(body);
             })
             .then(function () {
                 return postsService.getAll();
             })
-            .then(function (res) {
-                $scope.posts = res.data
+            .then(function (posts) {
+                $scope.posts = posts.data
             })
-            .catch(function () {})
-
+            .catch(function (err) {
+                console.log(err);
+            })
 
     }
 
