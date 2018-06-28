@@ -1,5 +1,7 @@
-angular.module('app').controller('utentiController', function ($scope, utenti) {
+angular.module('app').controller('utentiController', function ($scope, utenti, $state) {
     $scope.utenti = utenti.data;
 
-    console.log($scope.utenti)
+    $scope.dettaglio = function (idutente) { 
+        $state.go('loggato.utente', {id:idutente})
+    }
 })

@@ -14,7 +14,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
                 let loggato = localStorage.loggato;
                 if (loggato == "true") {
                     $state.go('loggato.home')
-                } 
+                }
             }
         })
         // STATO PADRE ASTRATTO
@@ -53,6 +53,16 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
             resolve: {
                 utenti: function (utentiService) {
                     return utentiService.getAll();
+                }
+            }
+        })
+        .state('loggato.utente', {
+            url: 'utenti/{id}',
+            templateUrl: 'app/utenti/utenteTemplate.html',
+            controller: 'utenteController',
+            resolve: {
+                utente: function (utentiService, $stateParams) {
+                    return utentiService.getOne($stateParams.id);
                 }
             }
         })
