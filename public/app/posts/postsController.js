@@ -40,5 +40,14 @@ angular.module('app').controller('postsController', function ($scope, posts, pos
 
     }
 
+    $scope.deletePost = function (id) { 
+        postsService.deletePost(id)
+            .then(function () { 
+                return postsService.getAll()
+            })
+            .then(function (posts) { 
+                $scope.posts = posts.data;
+            })
+    }
 
 });

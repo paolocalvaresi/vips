@@ -16,7 +16,12 @@
 
 <div class="card mb-3" ng-repeat="post in posts">
     <div class="card-body">
-        <h5 class="card-title" ng-bind="post.data | date : 'dd/MM/yyyy h:mm'"></h5>
+        <h5 class="card-title">
+            <span ng-bind="post.data | date : 'dd/MM/yyyy h:mm'"></span>
+            <span class="float-right" ng-click="deletePost(post._id)">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </h5>
         <p class="card-text" ng-bind="post.descrizione"></p>
     </div>
     <img class="card-img-bottom" ng-src="{{post.foto[0]}}" alt="Card image cap">

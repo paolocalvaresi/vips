@@ -25,9 +25,17 @@ angular.module('app').service('postsService', function ($http) {
 
     }
 
+    var deletePost = function (id) {
+        return $http({
+            method: 'DELETE',
+            url: 'http://localhost:3000/posts/' + id,
+        })
+    }
+
     return {
         getAll,
         addLike,
-        addPost
+        addPost,
+        deletePost
     }
 })

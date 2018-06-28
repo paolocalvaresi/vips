@@ -19,16 +19,22 @@ var postSchema = new Schema({
             type: String,
             required: true
         },
-        data: Date
+        data: {
+            type: Date,
+            default: Date.now
+        },
 
     }],
-    data: Date,
+    data: {
+        type: Date,
+        default: Date.now
+    },
+
     likes: Number
 });
 
 
-postSchema.pre('save', function (next) { 
-    this.data = new Date();
+postSchema.pre('save', function (next) {
     next();
 })
 

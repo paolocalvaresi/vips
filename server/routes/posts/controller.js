@@ -33,7 +33,7 @@ module.exports = (function () {
                 post.likes += 1;
                 return post.save()
             })
-            .then(function (post) { 
+            .then(function (post) {
                 res.json(post);
             })
             .catch(function (err) {
@@ -41,11 +41,21 @@ module.exports = (function () {
             })
     }
 
+    var deletePost = function (req, res) {
+        Post.findByIdAndRemove(req.params.id)
+            .then(function (post) {
+                res.json(post);
+            })
+            .catch(function (err) {
+                res.json(err);
+            })
+    }
+
     return {
         getAll,
         insertPost,
-        addLike
-
+        addLike,
+        deletePost
     }
 
 })()
