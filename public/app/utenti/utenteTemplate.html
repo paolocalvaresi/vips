@@ -4,6 +4,7 @@
         <p class="card-text" ng-bind=""></p>
     </div>
     <img class="card-img-bottom" ng-src="{{utente.foto[0]}}" alt="Card image cap">
+    <!-- info -->
     <div class="row my-3">
         <div class="col-md-4 text-left">
             <i class="fas fa-map-marker-alt p-2"></i>
@@ -16,6 +17,12 @@
         <div class="col-md-4 text-right">
             <i class="fas fa-briefcase p-2"></i>
             <span class="pr-2" ng-bind="utente.lavoro"></span>
+        </div>
+    </div>
+    <!-- interessi -->
+    <div class="row py-3">
+        <div class="col-md-12">
+            <span class="chips" ng-repeat="interesse in utente.interessi" ng-bind="interesse"></span>  
         </div>
     </div>
 </div>

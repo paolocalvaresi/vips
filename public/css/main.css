@@ -1,6 +1,14 @@
-body{
+body {
     background: #e9ebee;
 }
+
 .pointer {
     cursor: pointer;
+}
+
+.chips {
+    padding: 10px;
+    background: #eaeaea;
+    margin: 6px;
+    border-radius: 15px;
 }
