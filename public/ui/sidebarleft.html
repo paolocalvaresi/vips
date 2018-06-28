@@ -1,8 +1,8 @@
-<div class="row bg-white mb-2 p-2" ng-repeat="utente in amici" ng-click="dettaglio(utente._id)">
+<div class="row bg-white mb-2 p-2" ng-repeat="amico in amici" ng-click="dettaglio(amico._id)">
     <div class="col-md-6">
-        <img class="img-fluid" ng-src="{{utente.foto[0]}}" alt="Card image cap">
+        <img class="img-fluid" ng-src="{{amico.foto[0]}}" alt="Card image cap">
     </div>
     <div class="col-md-6">
-        <strong class="card-title" ng-bind="utente.nome + ' ' + utente.cognome"></strong>
+        <strong class="card-title" ng-bind="amico.nome + ' ' + amico.cognome"></strong>
     </div>
 </div>

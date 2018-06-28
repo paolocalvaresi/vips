@@ -8,6 +8,5 @@ angular.module('app').controller('navController', function ($scope, $rootScope, 
         $state.go('login')
 
     }
-
-    $scope.id = localStorage.id
+    $scope.id = $rootScope.id
 })

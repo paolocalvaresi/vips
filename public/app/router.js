@@ -4,6 +4,9 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
     $urlRouterProvider.otherwise("app/home");
     $locationProvider.html5Mode(true).hashPrefix('!');
 
+    // $rootScope.id = localStorage.id;
+
+
     $stateProvider
         //STAO PER IL LOGIN
         .state('login', {
@@ -67,4 +70,4 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
             }
         })
 
-})
+});
